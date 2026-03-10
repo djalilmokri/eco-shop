@@ -1,0 +1,1570 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco shop - أفضل متجر إلكتروني</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #0F3460;
+            --secondary-blue: #16BFD3;
+            --accent-purple: #8B5CF6;
+            --accent-orange: #FF6B35;
+            --light-bg: #F7F9FC;
+            --dark-text: #1A202C;
+            --light-text: #f8f9fa;
+            --border-color: #E2E8F0;
+            --shadow: 0 2px 15px rgba(0,0,0,0.1);
+            --shadow-lg: 0 8px 25px rgba(0,0,0,0.15);
+            --gradient-primary: linear-gradient(135deg, #0F3460 0%, #16BFD3 100%);
+            --gradient-accent: linear-gradient(135deg, #8B5CF6 0%, #FF6B35 100%);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
+            background-color: #f5f7fa;
+            line-height: 1.6;
+        }
+
+        /* ==================== HEADER ==================== */
+        .header {
+            background: var(--gradient-primary);
+            padding: 15px 30px;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--accent-orange);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(255, 107, 53, 0.3);
+        }
+
+        .search-box {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            background: white;
+            border-radius: 25px;
+            padding: 10px 20px;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+            max-width: 500px;
+        }
+
+        .search-box input {
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 14px;
+            color: var(--primary-text);
+        }
+
+        .search-box input::placeholder {
+            color: #bdc3c7;
+        }
+
+        .search-box i {
+            color: var(--secondary-blue);
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger-menu span {
+            width: 28px;
+            height: 3px;
+            background: white;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger-menu.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-8px, 8px);
+        }
+
+        .hamburger-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-menu.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-8px, -8px);
+        }
+
+        /* ==================== MOBILE MENU ==================== */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            right: 0;
+            top: 70px;
+            width: 280px;
+            background: white;
+            box-shadow: -2px 2px 15px rgba(0,0,0,0.2);
+            border-radius: 0 0 0 15px;
+            padding: 20px;
+            z-index: 999;
+            max-height: calc(100vh - 70px);
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .mobile-menu-section {
+            margin-bottom: 25px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+        }
+
+        .mobile-menu-section:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-menu-title {
+            font-weight: 600;
+            color: var(--secondary-blue);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .mobile-menu-link {
+            display: block;
+            padding: 10px 0;
+            color: var(--dark-text);
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border-right: 3px solid transparent;
+            padding-right: 10px;
+        }
+
+        .mobile-menu-link:hover {
+            color: var(--accent-purple);
+            border-right-color: var(--accent-purple);
+            padding-right: 15px;
+        }
+
+        /* ==================== NAVBAR ==================== */
+        .navbar {
+            background: white;
+            padding: 15px 30px;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 70px;
+            z-index: 900;
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .navbar-item {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            color: var(--dark-text);
+        }
+
+        .navbar-item:hover {
+            background: rgba(139, 92, 246, 0.1);
+            color: var(--accent-purple);
+        }
+
+        .navbar-icon {
+            font-size: 18px;
+        }
+
+        .navbar-label {
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .navbar-badge {
+            position: absolute;
+            top: -8px;
+            left: 0;
+            background: #e74c3c;
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+            min-width: 180px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            z-index: 1100;
+        }
+
+        .navbar-item:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            padding: 12px 20px;
+            color: var(--dark-text);
+            text-decoration: none;
+            display: block;
+            font-size: 13px;
+            transition: all 0.3s ease;
+            border-right: 3px solid transparent;
+        }
+
+        .dropdown-item:first-child {
+            border-radius: 12px 12px 0 0;
+        }
+
+        .dropdown-item:last-child {
+            border-radius: 0 0 12px 12px;
+        }
+
+        .dropdown-item:hover {
+            background: rgba(139, 92, 246, 0.1);
+            color: var(--accent-purple);
+            border-right-color: var(--accent-purple);
+            padding-right: 30px;
+        }
+
+        .dropdown-divider {
+            height: 1px;
+            background: var(--border-color);
+            margin: 5px 0;
+        }
+
+        /* ==================== HERO BANNER ==================== */
+        .hero-banner {
+            height: 30vh;
+            background: var(--gradient-primary);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 40px 20px;
+            overflow: hidden;
+            min-height: 400px;
+        }
+
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 107, 53, 0.2) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        .hero-banner::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(45deg, transparent 25%, rgba(255, 255, 255, 0.03) 25%),
+                linear-gradient(-45deg, transparent 25%, rgba(255, 255, 255, 0.03) 25%),
+                linear-gradient(45deg, rgba(255, 255, 255, 0.03) 75%, transparent 75%),
+                linear-gradient(-45deg, rgba(255, 255, 255, 0.03) 75%, transparent 75%);
+            background-size: 50px 50px;
+            background-position: 0 0, 10px 0, 10px -10px, 0 -10px;
+            z-index: 1;
+        }
+
+        .hero-banner.custom-bg {
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            margin-bottom: 25px;
+            opacity: 0.95;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary-blue);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary-blue);
+        }
+
+        /* ==================== CATEGORIES SECTION ==================== */
+        .categories-section {
+            padding: 60px 30px;
+            background: linear-gradient(135deg, #ffffff 0%, #F7F9FC 100%);
+            min-height: 40vh;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+            color: var(--dark-text);
+            margin-bottom: 50px;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-accent);
+            border-radius: 2px;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 30px;
+        }
+
+        .category-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: popIn 0.5s ease forwards;
+        }
+
+        @keyframes popIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .category-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .category-item:hover .category-icon {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border-color: var(--secondary-blue);
+        }
+
+        .category-name {
+            font-weight: 600;
+            color: var(--dark-text);
+            font-size: 14px;
+            line-height: 1.4;
+            transition: all 0.3s ease;
+        }
+
+        .category-item:hover .category-name {
+            color: var(--secondary-blue);
+        }
+
+        /* Color schemes for categories */
+        .cat-1 .category-icon { background: linear-gradient(135deg, #FFF5E1, #FFE0B2); border-color: #FF6B35; color: #FF6B35; }
+        .cat-2 .category-icon { background: linear-gradient(135deg, #E0F2F1, #B2DFDB); border-color: #00897B; color: #00897B; }
+        .cat-3 .category-icon { background: linear-gradient(135deg, #E3F2FD, #BBDEFB); border-color: #1976D2; color: #1976D2; }
+        .cat-4 .category-icon { background: linear-gradient(135deg, #F3E5F5, #E1BEE7); border-color: #7B1FA2; color: #7B1FA2; }
+        .cat-5 .category-icon { background: linear-gradient(135deg, #FFF9C4, #FFF59D); border-color: #F57F17; color: #F57F17; }
+        .cat-6 .category-icon { background: linear-gradient(135deg, #FFEBEE, #F8BBD0); border-color: #C2185B; color: #C2185B; }
+        .cat-7 .category-icon { background: linear-gradient(135deg, #E8F5E9, #C8E6C9); border-color: #388E3C; color: #388E3C; }
+        .cat-8 .category-icon { background: linear-gradient(135deg, #FCE4EC, #F8BBD0); border-color: #E91E63; color: #E91E63; }
+        .cat-9 .category-icon { background: linear-gradient(135deg, #E0F2F1, #B2DFDB); border-color: #0097A7; color: #0097A7; }
+        .cat-10 .category-icon { background: linear-gradient(135deg, #EDE7F6, #D1C4E9); border-color: #512DA8; color: #512DA8; }
+        .cat-11 .category-icon { background: linear-gradient(135deg, #E1F5FE, #B3E5FC); border-color: #0277BD; color: #0277BD; }
+        .cat-12 .category-icon { background: linear-gradient(135deg, #EFEBE9, #D7CCC8); border-color: #5D4037; color: #5D4037; }
+        .cat-13 .category-icon { background: linear-gradient(135deg, #EDE7F6, #D1C4E9); border-color: #283593; color: #283593; }
+        .cat-14 .category-icon { background: linear-gradient(135deg, #FFE0B2, #FFCC80); border-color: #E65100; color: #E65100; }
+
+        /* ==================== SIGNUP FORM ==================== */
+        .signup-section {
+            padding: 60px 30px;
+            background: linear-gradient(135deg, #F7F9FC 0%, rgba(15, 52, 96, 0.05) 100%);
+            min-height: 20vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .signup-container {
+            background: white;
+            border-radius: 15px;
+            padding: 50px;
+            box-shadow: var(--shadow-lg);
+            max-width: 500px;
+            width: 100%;
+            animation: slideUp 0.6s ease;
+            border-top: 4px solid var(--secondary-blue);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+
+        .form-subtitle {
+            text-align: center;
+            color: #64748b;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark-text);
+            font-size: 14px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            color: var(--dark-text);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--secondary-blue);
+            box-shadow: 0 0 10px rgba(22, 191, 211, 0.2);
+        }
+
+        .form-input::placeholder {
+            color: #bdc3c7;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            margin-bottom: 25px;
+        }
+
+        .form-checkbox input {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: var(--secondary-blue);
+        }
+
+        .form-checkbox label {
+            cursor: pointer;
+            font-size: 13px;
+            color: var(--dark-text);
+        }
+
+        .checkbox-link {
+            color: var(--secondary-blue);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .checkbox-link:hover {
+            text-decoration: underline;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 14px;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(15, 52, 96, 0.3);
+        }
+
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(15, 52, 96, 0.5);
+        }
+
+        .form-submit:active {
+            transform: translateY(0);
+        }
+
+        .form-login {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: var(--dark-text);
+        }
+
+        .form-login a {
+            color: var(--secondary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .form-login a:hover {
+            text-decoration: underline;
+        }
+
+        /* ==================== LOADING STATE ==================== */
+        .image-upload-info {
+            text-align: center;
+            padding: 20px;
+            background: rgba(139, 92, 246, 0.1);
+            border-radius: 10px;
+            border: 2px dashed var(--accent-purple);
+            margin-top: 20px;
+            font-size: 13px;
+            color: var(--accent-purple);
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            max-width: 300px;
+            z-index: 800;
+            box-shadow: var(--shadow-lg);
+            display: none;
+        }
+
+        .image-upload-info.show {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, rgba(15, 52, 96, 0.95) 100%);
+            color: white;
+            padding: 60px 30px 30px;
+            margin-top: 60px;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section {
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .footer-section:nth-child(1) { animation-delay: 0.1s; }
+        .footer-section:nth-child(2) { animation-delay: 0.2s; }
+        .footer-section:nth-child(3) { animation-delay: 0.3s; }
+        .footer-section:nth-child(4) { animation-delay: 0.4s; }
+
+        .footer-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--secondary-blue);
+        }
+
+        .footer-link {
+            display: block;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            margin-bottom: 12px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            padding-right: 10px;
+            border-right: 2px solid transparent;
+        }
+
+        .footer-link:hover {
+            color: var(--secondary-blue);
+            border-right-color: var(--secondary-blue);
+            padding-right: 15px;
+        }
+
+        .footer-info {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .footer-info-icon {
+            color: var(--secondary-blue);
+            font-size: 18px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .footer-info-text {
+            font-size: 14px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer-info-text a {
+            color: var(--secondary-blue);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer-info-text a:hover {
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid var(--secondary-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary-blue);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+
+        .social-link:hover {
+            background: var(--secondary-blue);
+            color: var(--primary-blue);
+            transform: translateY(-5px);
+        }
+
+        .footer-divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 30px 0;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-copyright {
+            text-align: center;
+            flex: 1;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer-bottom-link {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-bottom-link:hover {
+            color: var(--secondary-blue);
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .payment-icon {
+            width: 30px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--secondary-blue);
+        }
+
+        .back-to-top {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: var(--accent-orange);
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .back-to-top:hover {
+            background: var(--accent-purple);
+            transform: translateY(-3px);
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 768px) {
+            .header-container {
+                gap: 15px;
+            }
+
+            .search-box {
+                min-width: 200px;
+                max-width: 300px;
+            }
+
+            .hamburger-menu {
+                display: flex;
+            }
+
+            .navbar-container {
+                gap: 15px;
+            }
+
+            .navbar-label {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 32px;
+            }
+
+            .hero-subtitle {
+                font-size: 14px;
+            }
+
+            .categories-grid {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                gap: 20px;
+            }
+
+            .category-icon {
+                width: 80px;
+                height: 80px;
+                font-size: 32px;
+            }
+
+            .signup-container {
+                padding: 30px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-container {
+                padding: 10px 15px;
+            }
+
+            .logo-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 18px;
+            }
+
+            .logo {
+                font-size: 18px;
+                gap: 8px;
+            }
+
+            .search-box {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 24px;
+            }
+
+            .categories-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 15px;
+            }
+
+            .signup-container {
+                padding: 20px;
+            }
+
+            .form-title {
+                font-size: 22px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-bottom-links {
+                justify-content: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .back-to-top {
+                width: 100%;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">🛒</div>
+                <span>Eco shop</span>
+            </div>
+            
+            <div class="search-box">
+                <input type="text" placeholder="ابحث عن المنتجات...">
+                <i class="fas fa-search"></i>
+            </div>
+
+            <div class="hamburger-menu" id="hamburgerMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== MOBILE MENU ==================== -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-section">
+            <div class="mobile-menu-title">
+                <i class="fas fa-user-circle"></i> حسابي
+            </div>
+            <a href="#" class="mobile-menu-link">تسجيل الدخول</a>
+            <a href="#" class="mobile-menu-link">إنشاء حساب جديد</a>
+        </div>
+
+        <div class="mobile-menu-section">
+            <div class="mobile-menu-title">
+                <i class="fas fa-link"></i> روابط مفيدة
+            </div>
+            <a href="#" class="mobile-menu-link">إنشاء متجرك الخاص</a>
+            <a href="#" class="mobile-menu-link">الإعلان في الموقع</a>
+            <a href="#" class="mobile-menu-link">اتصل بنا</a>
+            <a href="#" class="mobile-menu-link">خدمة العملاء</a>
+            <a href="#" class="mobile-menu-link">سياسة الخصوصية</a>
+        </div>
+    </div>
+
+    <!-- ==================== NAVBAR ==================== -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <!-- Cart Icon -->
+            <div class="navbar-item">
+                <i class="fas fa-shopping-cart navbar-icon"></i>
+                <span class="navbar-label">السلة</span>
+                <span class="navbar-badge">0</span>
+                <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item">طلباتي</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">المرتجعات</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">التوصيات</a>
+                </div>
+            </div>
+
+            <!-- Account Icon -->
+            <div class="navbar-item">
+                <i class="fas fa-user navbar-icon"></i>
+                <span class="navbar-label">الحساب</span>
+                <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item">تسجيل الدخول</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">إنشاء حساب</a>
+                </div>
+            </div>
+
+            <!-- Categories Icon -->
+            <div class="navbar-item">
+                <i class="fas fa-th navbar-icon"></i>
+                <span class="navbar-label">الأقسام</span>
+                <div class="dropdown-menu" style="min-width: 200px;">
+                    <a href="#" class="dropdown-item">🏠 عقارات</a>
+                    <a href="#" class="dropdown-item">🚗 سيارات و مركبات</a>
+                    <a href="#" class="dropdown-item">⚙️ قطع غيار</a>
+                    <a href="#" class="dropdown-item">📱 هواتف و اكسسوارات</a>
+                    <a href="#" class="dropdown-item">🖥️ أعلام الي</a>
+                    <a href="#" class="dropdown-item">🔌 أجهزة إلكترونية</a>
+                    <a href="#" class="dropdown-item">👔 ملابس وموضة</a>
+                    <a href="#" class="dropdown-item">💄 صحة و جمال</a>
+                    <a href="#" class="dropdown-item">🛋️ أثاث منزل</a>
+                    <a href="#" class="dropdown-item">🎮 تسلية و ترفيه</a>
+                    <a href="#" class="dropdown-item">⚽ رياضة</a>
+                    <a href="#" class="dropdown-item">🔧 معدات و مواد</a>
+                    <a href="#" class="dropdown-item">🥕 مواد غذائية</a>
+                    <a href="#" class="dropdown-item">✈️ سياحة و سفر</a>
+                </div>
+            </div>
+
+            <!-- Trending Icon -->
+            <div class="navbar-item">
+                <i class="fas fa-fire navbar-icon"></i>
+                <span class="navbar-label">الأفضل</span>
+                <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item">⭐ الأكثر مبيعاً</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">🆕 أحدث إصدار</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO BANNER ==================== -->
+    <section class="hero-banner" id="heroBanner">
+        <div class="hero-content">
+            <h1 class="hero-title">مرحباً بك في متجرنا الشامل</h1>
+            <p class="hero-subtitle">اكتشف آلاف المنتجات من أفضل الماركات العالمية</p>
+            <div class="hero-buttons">
+                <button class="btn-primary">اكتشف المزيد</button>
+                <button class="btn-secondary">اتصل بنا</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== IMAGE UPLOAD HINT ==================== -->
+    <div class="image-upload-info">
+        📁 تلميح: ضع صور في مجلد "hero banner area" على Desktop لتغيير صورة الخلفية تلقائياً
+    </div>
+
+    <!-- ==================== CATEGORIES SECTION ==================== -->
+    <section class="categories-section">
+        <h2 class="section-title">تصفح الأقسام</h2>
+        
+        <div class="categories-grid">
+            <div class="category-item cat-1">
+                <div class="category-icon">🏠</div>
+                <div class="category-name">عقارات</div>
+            </div>
+
+            <div class="category-item cat-2">
+                <div class="category-icon">🚗</div>
+                <div class="category-name">سيارات و مركبات</div>
+            </div>
+
+            <div class="category-item cat-3">
+                <div class="category-icon">⚙️</div>
+                <div class="category-name">قطع غيار</div>
+            </div>
+
+            <div class="category-item cat-4">
+                <div class="category-icon">📱</div>
+                <div class="category-name">هواتف و اكسسوارات</div>
+            </div>
+
+            <div class="category-item cat-5">
+                <div class="category-icon">🖥️</div>
+                <div class="category-name">أعلام الي</div>
+            </div>
+
+            <div class="category-item cat-6">
+                <div class="category-icon">🔌</div>
+                <div class="category-name">أجهزة إلكترونية</div>
+            </div>
+
+            <div class="category-item cat-7">
+                <div class="category-icon">👔</div>
+                <div class="category-name">ملابس وموضة</div>
+            </div>
+
+            <div class="category-item cat-8">
+                <div class="category-icon">💄</div>
+                <div class="category-name">صحة و جمال</div>
+            </div>
+
+            <div class="category-item cat-9">
+                <div class="category-icon">🛋️</div>
+                <div class="category-name">أثاث منزل</div>
+            </div>
+
+            <div class="category-item cat-10">
+                <div class="category-icon">🎮</div>
+                <div class="category-name">تسلية و ترفيه</div>
+            </div>
+
+            <div class="category-item cat-11">
+                <div class="category-icon">⚽</div>
+                <div class="category-name">رياضة</div>
+            </div>
+
+            <div class="category-item cat-12">
+                <div class="category-icon">🔧</div>
+                <div class="category-name">معدات و مواد</div>
+            </div>
+
+            <div class="category-item cat-13">
+                <div class="category-icon">🥕</div>
+                <div class="category-name">مواد غذائية</div>
+            </div>
+
+            <div class="category-item cat-14">
+                <div class="category-icon">✈️</div>
+                <div class="category-name">سياحة و سفر</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SIGNUP FORM ==================== -->
+    <section class="signup-section">
+        <div class="signup-container">
+            <h2 class="form-title">انضم الآن</h2>
+            <p class="form-subtitle">احصل على عروض حصرية وتحديثات عن أحدث المنتجات</p>
+
+            <form id="signupForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">الاسم الأول *</label>
+                        <input type="text" class="form-input" placeholder="أدخل اسمك الأول" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">اسم العائلة *</label>
+                        <input type="text" class="form-input" placeholder="أدخل اسم العائلة" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">البريد الإلكتروني *</label>
+                    <input type="email" class="form-input" placeholder="example@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">رقم الهاتف *</label>
+                    <input type="tel" class="form-input" placeholder="+966 50 000 0000" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">كلمة المرور *</label>
+                    <input type="password" class="form-input" placeholder="أدخل كلمة مرور قوية" required>
+                </div>
+
+                <div class="form-checkbox">
+                    <input type="checkbox" id="termsCheckbox" required>
+                    <label for="termsCheckbox">أوافق على <a href="#" class="checkbox-link">شروط الخدمة</a> و <a href="#" class="checkbox-link">سياسة الخصوصية</a></label>
+                </div>
+
+                <button type="submit" class="form-submit">إنشاء الحساب</button>
+
+                <div class="form-login">
+                    لديك حساب بالفعل؟ <a href="#">تسجيل الدخول</a>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- About Section -->
+                <div class="footer-section">
+                    <div class="footer-title">
+                        <i class="fas fa-store"></i> عن متجرنا
+                    </div>
+                    <p style="color: rgba(255, 255, 255, 0.8); line-height: 1.8; font-size: 14px;">
+                        Eco shop هو منصة تجارة إلكترونية رائدة توفر آلاف المنتجات من أفضل الماركات العالمية بأسعار المنافسة.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" title="فيسبوك">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link" title="تويتر">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" title="إنستجرام">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link" title="لينكد إن">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link" title="يوتيوب">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links Section -->
+                <div class="footer-section">
+                    <div class="footer-title">
+                        <i class="fas fa-link"></i> روابط سريعة
+                    </div>
+                    <a href="#" class="footer-link">الرئيسية</a>
+                    <a href="#" class="footer-link">عن الموقع</a>
+                    <a href="#" class="footer-link">أحدث المنتجات</a>
+                    <a href="#" class="footer-link">العروض والخصومات</a>
+                    <a href="#" class="footer-link">المراجعات والتقييمات</a>
+                    <a href="#" class="footer-link">المدونة</a>
+                </div>
+
+                <!-- Customer Service Section -->
+                <div class="footer-section">
+                    <div class="footer-title">
+                        <i class="fas fa-headset"></i> خدمة العملاء
+                    </div>
+                    <a href="#" class="footer-link">اتصل بنا</a>
+                    <a href="#" class="footer-link">الدعم الفني</a>
+                    <a href="#" class="footer-link">الأسئلة الشائعة</a>
+                    <a href="#" class="footer-link">سياسة الاسترجاع</a>
+                    <a href="#" class="footer-link">شروط التوصيل</a>
+                    <a href="#" class="footer-link">ضمان المنتجات</a>
+                </div>
+
+                <!-- Contact Info Section -->
+                <div class="footer-section">
+                    <div class="footer-title">
+                        <i class="fas fa-info-circle"></i> معلومات التواصل
+                    </div>
+                    <div class="footer-info">
+                        <i class="fas fa-phone footer-info-icon"></i>
+                        <div class="footer-info-text">
+                            <strong>الهاتف:</strong><br>
+                            +1 9293027139
+                        </div>
+                    </div>
+                    <div class="footer-info">
+                        <i class="fas fa-envelope footer-info-icon"></i>
+                        <div class="footer-info-text">
+                            <strong>البريد:</strong><br>
+                            <a href="mailto:info@store.com">info@store.com</a>
+                        </div>
+                    </div>
+                    <div class="footer-info">
+                        <i class="fas fa-map-marker-alt footer-info-icon"></i>
+                        <div class="footer-info-text">
+                            <strong>العنوان:</strong><br>
+                            تين زاواطين، الجزائر 
+                        </div>
+                    </div>
+                    <div class="footer-info">
+                        <i class="fas fa-clock footer-info-icon"></i>
+                        <div class="footer-info-text">
+                            <strong>ساعات العمل:</strong><br>
+                            السبت - الخميس: 9 ص - 9 م
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-divider"></div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div style="flex: 1; display: flex; gap: 10px; justify-content: center; align-items: center;">
+                    <span>طرق الدفع المتاحة:</span>
+                    <div class="payment-methods">
+                        <div class="payment-icon">💳 كارت</div>
+                        <div class="payment-icon">🏦 تحويل</div>
+                        <div class="payment-icon">💰 دفع</div>
+                        <div class="payment-icon">📱 محفظة</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin: 20px 0; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 20px;">
+                <div class="footer-bottom-links">
+                    <a href="#" class="footer-bottom-link">سياسة الخصوصية</a>
+                    <a href="#" class="footer-bottom-link">شروط الخدمة</a>
+                    <a href="#" class="footer-bottom-link">سياسة الاسترجاع</a>
+                    <a href="#" class="footer-bottom-link">خريطة الموقع</a>
+                </div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+                <div class="footer-copyright">
+                    © 2026 Eco shop. جميع الحقوق محفوظة.
+                </div>
+                <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                    <i class="fas fa-arrow-up"></i> العودة للأعلى
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ==================== HAMBURGER MENU ==================== 
+        const hamburgerMenu = document.getElementById('hamburgerMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburgerMenu.addEventListener('click', function() {
+            hamburgerMenu.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.hamburger-menu') && 
+                !event.target.closest('.mobile-menu')) {
+                hamburgerMenu.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            }
+        });
+
+        // ==================== HERO BANNER IMAGE LOADER ==================== 
+        // This function checks for images in the Desktop/hero banner area folder
+        // The file must be manually placed in that folder on the desktop
+        // For demonstration, we'll use a placeholder gradient
+        
+        function loadHeroBannerImage() {
+            // In a real application with Node.js backend or similar,
+            // you would fetch images from the hero banner area folder
+            // For now, this is a placeholder function
+            const heroBanner = document.getElementById('heroBanner');
+            
+            // Example: set a custom background if available
+            // heroBanner.style.backgroundImage = "url('path/to/image.jpg')";
+            // heroBanner.classList.add('custom-bg');
+            
+            // Show the image upload hint as a floating notification
+            setTimeout(() => {
+                const imageUploadInfo = document.querySelector('.image-upload-info');
+                if (imageUploadInfo) {
+                    imageUploadInfo.classList.add('show');
+                }
+            }, 1500);
+        }
+
+        // Load hero banner image on page load
+        window.addEventListener('load', loadHeroBannerImage);
+
+        // ==================== FORM SUBMISSION ==================== 
+        const signupForm = document.getElementById('signupForm');
+        
+        signupForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const formData = new FormData(signupForm);
+            
+            // Simple validation and feedback
+            const firstName = formData.get('firstName') || document.querySelector('input[placeholder="أدخل اسمك الأول"]').value;
+            
+            if (firstName.trim() === '') {
+                alert('يرجى ملء جميع الحقول المطلوبة');
+                return;
+            }
+            
+            // Show success message
+            alert('تم إنشاء حسابك بنجاح! شكراً لانضمامك إلينا 🎉');
+            signupForm.reset();
+        });
+
+        // ==================== SMOOTH INTERACTIONS ==================== 
+        
+        // Cart badge counter
+        const cartBadge = document.querySelector('.navbar-badge');
+        let cartCount = 0;
+
+        // Add smooth hover effects to category items
+        document.querySelectorAll('.category-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const categoryName = this.querySelector('.category-name').textContent;
+                console.log('تم اختيار القسم:', categoryName);
+                // In a real app, this would navigate to the category page
+            });
+        });
+
+        // ==================== SEARCH FUNCTIONALITY ==================== 
+        const searchBox = document.querySelector('.search-box input');
+        const searchIcon = document.querySelector('.search-box i');
+
+        searchIcon.addEventListener('click', function() {
+            const searchTerm = searchBox.value.trim();
+            if (searchTerm !== '') {
+                console.log('البحث عن:', searchTerm);
+                // In a real app, this would perform an actual search
+                alert(`البحث عن: ${searchTerm}`);
+            }
+        });
+
+        searchBox.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchIcon.click();
+            }
+        });
+
+        // ==================== NAVIGATION LINKS ==================== 
+        // Add click handlers to dropdown items
+        document.querySelectorAll('.dropdown-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                const itemText = this.textContent.trim();
+                console.log('تم اختيار:', itemText);
+                // In a real app, navigate to the selected page
+            });
+        });
+
+        // ==================== MOBILE MENU LINKS ==================== 
+        document.querySelectorAll('.mobile-menu-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                hamburgerMenu.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                console.log('تم اختيار:', this.textContent);
+            });
+        });
+
+        // ==================== ACCESSIBILITY ENHANCEMENTS ==================== 
+        // Add keyboard navigation for dropdowns
+        document.querySelectorAll('.navbar-item').forEach(item => {
+            item.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
+                }
+            });
+        });
+
+        // ==================== PAGE LOAD ANIMATION ==================== 
+        window.addEventListener('load', function() {
+            // Add a subtle animation when page loads
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+
+</body>
+</html>
